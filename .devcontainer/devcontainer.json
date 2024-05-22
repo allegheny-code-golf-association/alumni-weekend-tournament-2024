@@ -1,0 +1,15 @@
+{
+    "name": "Java, Maven, Aya Dev Container",
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+        "maven.executable.path": "/usr/share/maven/bin/mvn"
+    },
+    "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven"
+    ],
+    "forwardPorts": [],
+    "postCreateCommand": "mvn --version && aya --version",
+    "remoteUser": "vscode"
+}

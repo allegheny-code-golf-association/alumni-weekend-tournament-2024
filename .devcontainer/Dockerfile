@@ -16,5 +16,5 @@ RUN curl -fsSL https://api.github.com/repos/allegheny-code-golf-association/acga
 RUN unzip aya-v$(cat TAG_NAME).jar
 
 # Create alias 
-RUN echo "java -jar /opt/aya/aya-v$(cat TAG_NAME).jar aya $1" > /usr/bin/aya
+RUN echo "java -jar /opt/aya/aya-v$(cat TAG_NAME).jar aya \$1" > /usr/bin/aya
 RUN chmod 555 /usr/bin/aya

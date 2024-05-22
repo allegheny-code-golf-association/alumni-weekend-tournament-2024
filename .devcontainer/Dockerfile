@@ -5,8 +5,14 @@ FROM mcr.microsoft.com/vscode/devcontainers/java:0-11
 RUN apt-get update 
 RUN apt-get install -y jq \
     wget \
-    curl
+    curl \
+    unzip
 
 # Install Aya
+RUN mkdir -p /opt/aya
+WORKDIR /opt/aya
 RUN echo $(curl -fsSL https://api.github.com/repos/allegheny-code-golf-association/acga-aya/releases/latest | jq -r ".tag_name") >> TAG_NAME
 RUN curl -fsSL https://api.github.com/repos/allegheny-code-golf-association/acga-aya/releases/latest | wget $(jq -r ".assets[].browser_download_url")
+RUN unzip aya-v$(cat TAG_NAME).jar
+
+RUN /bin/bash
